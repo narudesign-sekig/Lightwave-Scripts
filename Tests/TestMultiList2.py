@@ -14,7 +14,6 @@ __date__ = "Dec 5 2018"
 __copyright__ = "Copyright (C) 2012 naru design"
 __version__ = "0.0"
 __maintainer__ = "Makoto Sekiguchi"
-__email__ = "contact@narudesign.com"
 __status__ = "Test"
 __lwver__ = "11"
 
