@@ -8,6 +8,8 @@
 [SK_MakePoly3PO.py](SK_MakePoly3PO.py)
 
 ### How To Use
+![anim](MakePoly3PO.gif)
+
 3つのポイントを選択した後、スクリプトを実行する。
 
 注意 : ポイントを選択する順番が右回りと左回りではポリゴンの表裏が変わります。
