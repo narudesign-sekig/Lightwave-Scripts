@@ -66,14 +66,14 @@ class historyList(lwsdk.ICommandSequence):
             self.c4.set_int(1 if self.history[row].selectOthers else 0)
 
     # check duplicate history
-    def searchHistoryRecord(self, string, isContain, selectOthers):
+    def searchHistory(self, history):
         if self.history == None:
             return -1
 
         for index, data in enumerate(self.history):
-            if data.string == string:
-                if data.isContain == isContain:
-                    if data.selectOthers == selectOthers:
+            if data.string == history.string:
+                if data.isContain == history.isContain:
+                    if data.selectOthers == history.selectOthers:
                         return index
         return -1
 
@@ -104,25 +104,19 @@ class historyList(lwsdk.ICommandSequence):
             ui.destroy(panel)
             return lwsdk.AFUNC_OK
 
-        _string = self.c2.get_str()
-        _isContain = False if self.c3.get_int() < 1 else True
-        _selectOthers = False if self.c4.get_int() < 1 else True
+        tmp_history = historyData()
+        tmp_history.string = self.c2.get_str()
+        tmp_history.isContain = False if self.c3.get_int() < 1 else True
+        tmp_history.selectOthers = False if self.c4.get_int() < 1 else True
 
-        index = self.searchHistoryRecord(_string, _isContain, _selectOthers)
+        index = self.searchHistory(tmp_history)
 
         if index < 0:
-            if len(_string) > 0:
-                _history = historyData()
-                _history.string = _string
-                _history.isContain = _isContain
-                _history.selectOthers = _selectOthers
-
-                self.history.insert(0, _history)
-
+            if len(tmp_history.string) > 0:
+                self.history.insert(0, tmp_history)
                 store("history", self.history)
         else:
             self.moveHistoryRecordForward(index)
-
             store("history", self.history)
 
         ui.destroy(panel)
