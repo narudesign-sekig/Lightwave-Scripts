@@ -16,14 +16,21 @@ from lwsdk.pris.modeler import init, lyrsetfg, lyrsetbg
 __lwver__ = "11"
 
 
+class HistoryData():
+    def __init__(self):
+        self.string = ''
+        self.select_contains = False
+        self.select_others = False
+
+
 class SelectLayerWithString(lwsdk.ICommandSequence):
     def __init__(self, context):
         super(SelectLayerWithString, self).__init__()
 
-        self.target = "abc"
+        self.history = []
 
-    def process(self, mod):
-        init(mod)
+    def select_layers(self, mod_command, history):
+        init(mod_command)
         objFuncs = lwsdk.LWObjectFuncs()
         currentObject = objFuncs.focusObject()
         numberOfLayers = objFuncs.maxLayers(currentObject)
@@ -34,7 +41,7 @@ class SelectLayerWithString(lwsdk.ICommandSequence):
         for i in range(numberOfLayers):
             name = objFuncs.layerName(currentObject, i)
             if name != None:
-                if name.find(self.target) != -1:
+                if name.find(history.string) != -1:
                     foregroundLayers.append(str(i + 1))
                 else:
                     backgroundLayers.append(str(i + 1))
@@ -43,6 +50,14 @@ class SelectLayerWithString(lwsdk.ICommandSequence):
 
         lyrsetfg(' '.join(foregroundLayers))
         lyrsetbg(' '.join(backgroundLayers))
+
+    def process(self, mod_command):
+        history = HistoryData()
+        history.string = "___"
+        history.select_contains = False
+        history.select_others = False
+
+        self.select_layers(mod_command, history)
 
         return lwsdk.AFUNC_OK
 
