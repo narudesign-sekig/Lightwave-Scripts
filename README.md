@@ -4,7 +4,7 @@
 
 [SelectLayersByString](Modeler/SelectLayersByString/README.md) / 文字列でレイヤー選択
 
-[MakePoly3PO](MakePoly3PO/README.md) / 選択した3つのポイントから4点ポリゴン作成
+[MakePoly3PO](Modeler/MakePoly3PO/README.md) / 選択した3つのポイントから4点ポリゴン作成
 
 ## for Layout
 
