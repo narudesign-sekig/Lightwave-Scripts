@@ -20,7 +20,7 @@ __lwver__ = "11"
 RESOURCE = '\04(k:"%s" c:LWPy)'
 
 
-list_history_title = ["String", "contains string (FG)", "select_others (BG)"]
+list_history_title = ["String", "FG Layer", "Select others BG"]
 
 
 class HistoryData():
