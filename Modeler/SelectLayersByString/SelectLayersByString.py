@@ -219,16 +219,16 @@ class SelectLayersByString(lwsdk.ICommandSequence):
 
             return lwsdk.AFUNC_OK
 
-        tmp_history = HistoryData()
-        tmp_history.string = self.text_string.get_str()
-        tmp_history.select_contains = not self.hchoice_contains.get_int()
-        tmp_history.select_others = self.bool_others.get_int()
+        history = HistoryData()
+        history.string = self.text_string.get_str()
+        history.select_contains = not self.hchoice_contains.get_int()
+        history.select_others = self.bool_others.get_int()
 
-        self.add_history(tmp_history)
+        self.add_history(history)
         self.write_history()
 
         try:
-            self.select_layers(mod_command, tmp_history)
+            self.select_layers(mod_command, history)
 
         except NoForegroundLayer:
             message_funcs = lwsdk.LWMessageFuncs()
