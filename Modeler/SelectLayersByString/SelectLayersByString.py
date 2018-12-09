@@ -136,9 +136,8 @@ class SelectLayersByString(lwsdk.ICommandSequence):
 
     # move history record forward
     def move_history_record_forward(self, index):
-        if index > 0:
-            tmp = self.history.pop(index)
-            self.history.insert(0, tmp)
+        tmp = self.history.pop(index)
+        self.history.insert(0, tmp)
 
     # add history
     def add_history(self, history):
@@ -147,7 +146,8 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         if index < 0:
             if len(history.string) > 0:
                 self.history.insert(0, history)
-        else:
+
+        if index > 0:
             self.move_history_record_forward(index)
 
     # select layers
