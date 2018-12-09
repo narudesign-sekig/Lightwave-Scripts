@@ -9,19 +9,15 @@ Select layers by string
 import lwsdk
 from lwsdk.pris import recall, store
 
-__author__ = "Makoto Sekiguchi"
-__date__ = "Dec 5 2018"
-__copyright__ = "Copyright (C) 2018 naru design"
-__version__ = "1.00"
-__maintainer__ = "Makoto Sekiguchi"
-__status__ = "Develop"
-__lwver__ = "11"
-
-RESOURCE = '\04(k:"%s" c:LWPy)'
-
+__author__      = "Makoto Sekiguchi"
+__date__        = "Dec 5 2018"
+__copyright__   = "Copyright (C) 2018 naru design"
+__version__     = "1.00"
+__maintainer__  = "Makoto Sekiguchi"
+__status__      = "Develop"
+__lwver__       = "11"
 
 list_history_title = ["String", "FG Layer", "Select others BG"]
-
 
 class HistoryData():
     def __init__(self):
@@ -51,15 +47,14 @@ class SelectLayersByString(lwsdk.ICommandSequence):
     # list_history name callback
     def nameCallback(self, control, user_data, row, column):
         if row < 0:
-            return RESOURCE % list_history_title[column]
+            return list_history_title[column]
 
         if column == 0:
             return self.history[row].string
-
-        if column == 1:
+        elif column == 1:
             return 'Contains' if self.history[row].select_contains else 'Not contains'
-
-        return 'On' if self.history[row].select_others else 'Off'
+        else:
+            return 'On' if self.history[row].select_others else 'Off'
 
     # list_history count callback
     def countCallback(self, control, user_data):
@@ -108,14 +103,11 @@ class SelectLayersByString(lwsdk.ICommandSequence):
 
     # check duplicate history
     def search_history(self, history):
-        if self.history == None:
-            return -1
-
-        for index, data in enumerate(self.history):
-            if data.string == history.string:
-                if data.select_contains == history.select_contains:
-                    if data.select_others == history.select_others:
-                        return index
+        if self.history != None:
+            for index, data in enumerate(self.history):
+                if data.string == history.string and data.select_contains == history.select_contains \
+                        and data.select_others == history.select_others:
+                    return index
         return - 1
 
     # remove history
@@ -143,9 +135,8 @@ class SelectLayersByString(lwsdk.ICommandSequence):
     def add_history(self, history):
         index = self.search_history(history)
 
-        if index < 0:
-            if len(history.string) > 0:
-                self.history.insert(0, history)
+        if index < 0 and len(history.string) > 0:
+            self.history.insert(0, history)
 
         if index > 0:
             self.move_history_record_forward(index)
@@ -201,14 +192,13 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         self.read_history()
 
         ui = lwsdk.LWPanels()
-        panel = ui.create(RESOURCE % 'Select layers by string ver.1.00 - Copyright (C) 2018 naru design')
+        panel = ui.create('Select layers by string ver.1.00 - Copyright (C) 2018 naru design')
 
-        self.text_string = panel.str_ctl(RESOURCE % "String", 50)
-        self.hchoice_contains = panel.hchoice_ctl(RESOURCE % "Select FG Layer", ('Contains string', 'Not contains string'))
-        self.bool_others = panel.bool_ctl(RESOURCE % "Select others as BG Layer")
-        self.list_history = panel.multilist_ctl(RESOURCE % 'History', 450, 10,
-                                                self.nameCallback, self.countCallback, self.columnCallback)
-        self.button_remove = panel.button_ctl(RESOURCE % "Remove")
+        self.text_string = panel.str_ctl("String", 50)
+        self.hchoice_contains = panel.hchoice_ctl("Select FG Layer", ('Contains string', 'Not contains string'))
+        self.bool_others = panel.bool_ctl("Select others as BG Layer")
+        self.list_history = panel.multilist_ctl('History', 450, 10, self.nameCallback, self.countCallback, self.columnCallback)
+        self.button_remove = panel.button_ctl("Remove")
         self.button_remove.ghost()
 
         self.list_history.set_select(self.selectCallback)
@@ -232,7 +222,7 @@ class SelectLayersByString(lwsdk.ICommandSequence):
 
         except NoForegroundLayer:
             message_funcs = lwsdk.LWMessageFuncs()
-            message_funcs.error(RESOURCE % 'No foreground layer', '')
+            message_funcs.error('No foreground layer', '')
 
         finally:
             return lwsdk.AFUNC_OK
