@@ -5,16 +5,20 @@
 ![SelectLayersByString](SelectLayersByString100.png)
 
 レイヤー名を文字列で検索して、条件に一致するレイヤーを選択します。
-
 入力した検索条件は履歴として残ります。履歴を使ってレイヤー選択できます。
 
 メッシュが含まれないレイヤーは選択の対象としません。
 
-Search the layer name as a character string and select the layer that matches the condition.
+フォアグラウンドレイヤーとして選択できるレイヤーが無い場合、エラーとなります。
+オブジェクトにメッシュが存在しない場合もエラーとなります。
 
+Search the layer name as a character string and select the layer that matches the condition.
 The search condition you entered remains as history. You can select a layer using history.
 
-The script does not select layers that do not contain a mesh.
+Layers that do not contain a mesh are not selected.
+
+If there is no layer that can be selected as the foreground layer, an error will result.
+An error also occurs if there is no mesh in the object.
 
 ## Download
 
