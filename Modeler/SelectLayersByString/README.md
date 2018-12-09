@@ -26,7 +26,7 @@ An error also occurs if there is no mesh in the object.
 
 [SelectLayersByString.zip](SelectLayersByString.zip)
 
-「名前をつけてリンク先を保存」でダウンロード。zipファイルに含まれるSelectLayersByString.pyファイルを任意のフォルダへ移動してAdd Pluginしてください。
+「名前をつけてリンク先を保存」でダウンロード。zipファイルに含まれるSelectLayersByString.pyファイルを任意のフォルダへ移動してAdd Pluginしてください。SK_SelectLayersByStringとして登録されます。
 
 ## How To Use
 
