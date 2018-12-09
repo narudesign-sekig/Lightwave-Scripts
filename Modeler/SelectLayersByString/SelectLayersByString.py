@@ -14,7 +14,7 @@ __date__        = "Dec 5 2018"
 __copyright__   = "Copyright (C) 2018 naru design"
 __version__     = "1.00"
 __maintainer__  = "Makoto Sekiguchi"
-__status__      = "Develop"
+__status__      = "Release"
 __lwver__       = "11"
 
 list_history_title = ["String", "FG Layer", "Select others BG"]
