@@ -40,7 +40,7 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         super(SelectLayersByString, self).__init__()
 
         self.text_string = None
-        self.bool_contains = None
+        self.hchoice_contains = None
         self.bool_others = None
         self.list_history = None
         self.button_remove = None
@@ -57,9 +57,9 @@ class SelectLayersByString(lwsdk.ICommandSequence):
             return self.history[row].string
 
         if column == 1:
-            return 'True' if self.history[row].select_contains else 'False'
+            return 'Contains' if self.history[row].select_contains else 'Not contains'
 
-        return 'True' if self.history[row].select_others else 'False'
+        return 'On' if self.history[row].select_others else 'Off'
 
     # list_history count callback
     def countCallback(self, control, user_data):
@@ -83,7 +83,7 @@ class SelectLayersByString(lwsdk.ICommandSequence):
             if selecting == 1:
                 self.selection[row] = True
                 self.text_string.set_str(self.history[row].string)
-                self.bool_contains.set_int(self.history[row].select_contains)
+                self.hchoice_contains.set_int(not self.history[row].select_contains)
                 self.bool_others.set_int(self.history[row].select_others)
             else:
                 self.selection[row] = False
@@ -206,8 +206,8 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         panel = ui.create(RESOURCE % 'Select layers by string ver.1.00 - Copyright (C) 2018 naru design')
 
         self.text_string = panel.str_ctl(RESOURCE % "String", 50)
-        self.bool_contains = panel.bool_ctl(RESOURCE % "contains string (FG)")
-        self.bool_others = panel.bool_ctl(RESOURCE % "select_others (BG)")
+        self.hchoice_contains = panel.hchoice_ctl(RESOURCE % "Select FG Layer", ('Contains string', 'Not contains string'))
+        self.bool_others = panel.bool_ctl(RESOURCE % "Select others as BG Layer")
         self.list_history = panel.multilist_ctl(RESOURCE % 'History', 450, 10,
                                                 self.nameCallback, self.countCallback, self.columnCallback)
         self.button_remove = panel.button_ctl(RESOURCE % "Remove")
@@ -223,7 +223,7 @@ class SelectLayersByString(lwsdk.ICommandSequence):
 
         tmp_history = HistoryData()
         tmp_history.string = self.text_string.get_str()
-        tmp_history.select_contains = self.bool_contains.get_int()
+        tmp_history.select_contains = not self.hchoice_contains.get_int()
         tmp_history.select_others = self.bool_others.get_int()
 
         self.add_history(tmp_history)
