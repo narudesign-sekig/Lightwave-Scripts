@@ -1,5 +1,7 @@
 # SelectLayersByString
 
+LightwaveのModeler用スクリプトです。
+
 ## Overview
 
 ![SelectLayersByString](SelectLayersByString100.png)
@@ -23,6 +25,8 @@ An error also occurs if there is no mesh in the object.
 ## Download
 
 [SelectLayersByString.zip](SelectLayersByString.zip)
+
+「名前をつけてリンク先を保存」でダウンロード。zipファイルに含まれるSelectLayersByString.pyファイルを任意のフォルダへ移動してAdd Pluginしてください。
 
 ## How To Use
 
