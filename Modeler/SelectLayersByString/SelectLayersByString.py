@@ -203,8 +203,7 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         self.read_history()
 
         ui = lwsdk.LWPanels()
-        panel = ui.create(RESOURCE %
-                          'Select layers by string ver.1.00 - Copyright (C) 2018 naru design')
+        panel = ui.create(RESOURCE % 'Select layers by string ver.1.00 - Copyright (C) 2018 naru design')
 
         self.text_string = panel.str_ctl(RESOURCE % "String", 50)
         self.bool_contains = panel.bool_ctl(RESOURCE % "contains string (FG)")
