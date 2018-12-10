@@ -19,7 +19,7 @@ If there is no layer that can be selected as the foreground layer, an error will
 
 [SelectLayersByString.zip](SelectLayersByString.zip)
 
-Download the file by "Save as..", unzip zip file and add plugin. Plugin is added as "SK_SelectLayersByString".
+Download the zip file by "Save as..", unzip zip file and add plugin. Plugin is added as "SK_SelectLayersByString".
 
 ## How To Use
 
