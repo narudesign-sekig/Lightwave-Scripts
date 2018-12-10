@@ -45,6 +45,10 @@ Deletes the selected history.
 
 ## Change log
 
+2018.12.10 (ver.1.01)
+
+Set the previous search condition as default condition
+
 2018.12.9 (ver.1.0)
 
 Release

@@ -48,6 +48,10 @@ Specify whether to select the layer containing the string as the foreground laye
 
 ## Change log
 
+2018.12.10 (ver.1.01)
+
+変更：前回の検索条件をデフォルトの条件としてセット
+
 2018.12.9 (ver.1.0)
 
 リリース
