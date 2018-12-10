@@ -12,7 +12,7 @@ from lwsdk.pris import recall, store
 __author__      = "Makoto Sekiguchi"
 __date__        = "Dec 5 2018"
 __copyright__   = "Copyright (C) 2018 naru design"
-__version__     = "1.00"
+__version__     = "1.01"
 __maintainer__  = "Makoto Sekiguchi"
 __status__      = "Release"
 __lwver__       = "11"
@@ -25,11 +25,9 @@ class HistoryData():
         self.select_contains = 0
         self.select_others = 0
 
-
 class NoForegroundLayer(Exception):
     def __str__(self):
         return "No Foreground Layer"
-
 
 class SelectLayersByString(lwsdk.ICommandSequence):
     def __init__(self, context):
@@ -188,11 +186,19 @@ class SelectLayersByString(lwsdk.ICommandSequence):
             cs_setlayer = mod.lookup(mod.data, "setblayer")
             mod.execute(mod.data, cs_setlayer, cs_options, lwsdk.OPSEL_USER)
 
+    # set default values
+    def set_default_values(self):
+        if len(self.history) > 0:
+            self.text_string.set_str(self.history[0].string)
+            self.hchoice_contains.set_int(not self.history[0].select_contains)
+            self.bool_others.set_int(self.history[0].select_others)
+
+
     def process(self, mod_command):
         self.read_history()
 
         ui = lwsdk.LWPanels()
-        panel = ui.create('Select layers by string ver.1.00 - Copyright (C) 2018 naru design')
+        panel = ui.create('Select layers by string ver.1.01 - Copyright (C) 2018 naru design')
 
         self.text_string = panel.str_ctl("String", 50)
         self.hchoice_contains = panel.hchoice_ctl("Select FG Layer", ('Contains string', 'Not contains string'))
@@ -203,6 +209,8 @@ class SelectLayersByString(lwsdk.ICommandSequence):
 
         self.list_history.set_select(self.selectCallback)
         self.button_remove.set_event(self.remove_history)
+
+        self.set_default_values()
 
         if panel.open(lwsdk.PANF_BLOCKING | lwsdk.PANF_CANCEL) == 0:
             ui.destroy(panel)
