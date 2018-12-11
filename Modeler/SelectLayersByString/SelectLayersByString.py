@@ -12,7 +12,7 @@ from lwsdk.pris import recall, store
 __author__      = "Makoto Sekiguchi"
 __date__        = "Dec 5 2018"
 __copyright__   = "Copyright (C) 2018 naru design"
-__version__     = "1.02"
+__version__     = "1.03"
 __maintainer__  = "Makoto Sekiguchi"
 __status__      = "Release"
 __lwver__       = "11"
@@ -43,6 +43,9 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         self.history = []
         self.selection = []
         self.sort_history = True
+        self.last_string = None
+        self.last_select_contains = 0
+        self.last_others = 0
 
     # list_history name callback
     def nameCallback(self, control, user_data, row, column):
@@ -97,11 +100,17 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         self.history = recall("history", [])
         self.selection = [False] * len(self.history)
         self.sort_history = recall("sort_history", True)
+        self.last_string = recall("last_string", "")
+        self.last_select_contains = recall("last_select_contains", 0)
+        self.last_others = recall("last_others", 0)
 
     # write history
     def write_history(self):
         store("history", self.history)
         store("sort_history", self.sort_history)
+        store("last_string", self.last_string)
+        store("last_select_contains", self.last_select_contains)
+        store("last_others", self.last_others)
 
     # check duplicate history
     def search_history(self, history):
@@ -193,9 +202,9 @@ class SelectLayersByString(lwsdk.ICommandSequence):
     # set default values
     def set_default_values(self):
         if len(self.history) > 0:
-            self.text_string.set_str(self.history[0].string)
-            self.hchoice_contains.set_int(not self.history[0].select_contains)
-            self.bool_others.set_int(self.history[0].select_others)
+            self.text_string.set_str(self.last_string)
+            self.hchoice_contains.set_int(not self.last_select_contains)
+            self.bool_others.set_int(self.last_others)
             self.bool_sort_history.set_int(self.sort_history)
 
 
@@ -228,6 +237,9 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         history.select_contains = not self.hchoice_contains.get_int()
         history.select_others = self.bool_others.get_int()
 
+        self.last_string = history.string
+        self.last_select_contains = history.select_contains
+        self.last_others = history.select_others
         self.sort_history = self.bool_sort_history.get_int()
 
         self.add_history(history)
