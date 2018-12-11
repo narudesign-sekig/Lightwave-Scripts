@@ -6,7 +6,7 @@ Lightwave Modeler Python Script
 
 ## Overview
 
-![SelectLayersByString](SelectLayersByString100.png)
+![SelectLayersByString](SelectLayersByString.png)
 
 Search the layer name as a character string and select the layer that matches the condition.
 The search condition you entered remains as history. You can select a layer using history.
@@ -35,6 +35,12 @@ Specify whether to select the layer containing the string as the foreground laye
 
 Select the layer that was not selected as the foreground layer as the background layer.
 
+### - Move the last condition up if they match :
+
+Switching, if there is a matching history, whether to move to the top or not.
+
+Please turn it off to stop sorting history.
+
 ### - History list
 
 Click history to recall the search condition.
@@ -45,13 +51,17 @@ Deletes the selected history.
 
 ## Change log
 
+2018.12.11 (ver.1.02)
+
+- Whether or not to make the selectable, matching history move to the top
+
 2018.12.10 (ver.1.01)
 
-Set the previous search condition as default condition
+- Set the previous search condition as default condition
 
 2018.12.9 (ver.1.0)
 
-Release
+- Release
 
 ## Donation
 If this project helps shorten the working time, you can give me a cup of coffee :)

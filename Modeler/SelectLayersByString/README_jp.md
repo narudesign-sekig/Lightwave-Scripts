@@ -6,7 +6,7 @@ LightwaveのModeler用Pythonスクリプトです。
 
 ## Overview
 
-![SelectLayersByString](SelectLayersByString100.png)
+![SelectLayersByString](SelectLayersByString.png)
 
 レイヤー名を文字列で検索して、条件に一致するレイヤーを選択します。
 入力した検索条件は履歴として残ります。履歴を使ってレイヤー選択できます。
@@ -38,6 +38,10 @@ Specify whether to select the layer containing the string as the foreground laye
 
 フォアグラウンドレイヤーとして選択されなかったレイヤーをバックグラウンドレイヤーとして選択します。
 
+### - Move the last condition up if they match :
+
+一致する履歴があった時、自動的に履歴の最初へ移動するか否か。履歴のソートを停止するにはオフにしてください。
+
 ### - History list
 
 履歴をクリックすると検索条件を呼び出します。
@@ -48,13 +52,17 @@ Specify whether to select the layer containing the string as the foreground laye
 
 ## Change log
 
+2018.12.11 (ver.1.02)
+
+- 追加：自動的に履歴を先頭へ移動することを選択できるようにした
+
 2018.12.10 (ver.1.01)
 
-変更：前回の検索条件をデフォルトの条件としてセット
+- 変更：前回の検索条件をデフォルトの条件としてセット
 
 2018.12.9 (ver.1.0)
 
-リリース
+- リリース
 
 ## Donation
 If this project helps shorten the working time, you can give me a cup of coffee :)
