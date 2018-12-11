@@ -54,6 +54,10 @@ Specify whether to select the layer containing the string as the foreground laye
 
 2018.12.11 (ver.1.02)
 
+- 修正：デフォルトの検索条件が履歴リストの先頭に固定される問題
+
+2018.12.11 (ver.1.02)
+
 - 追加：自動的に履歴を先頭へ移動することを選択できるようにした
 
 2018.12.10 (ver.1.01)

@@ -51,6 +51,10 @@ Deletes the selected history.
 
 ## Change log
 
+2018.12.11 (ver.1.03)
+
+- Fix : Issue where default search condition is fixed at the top of history list.
+
 2018.12.11 (ver.1.02)
 
 - Whether or not to make the selectable, matching history move to the top
