@@ -56,8 +56,6 @@ Specify whether to select the layer containing the string as the foreground laye
 
 リリース
 
-release
-
 ## Donation
 If this project helps shorten the working time, you can give me a cup of coffee :)
 
