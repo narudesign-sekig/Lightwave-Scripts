@@ -52,7 +52,7 @@ Specify whether to select the layer containing the string as the foreground laye
 
 ## Change log
 
-2018.12.11 (ver.1.02)
+2018.12.11 (ver.1.03)
 
 - 修正：デフォルトの検索条件が履歴リストの先頭に固定される問題
 
