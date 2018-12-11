@@ -53,8 +53,6 @@ Set the previous search condition as default condition
 
 Release
 
-release
-
 ## Donation
 If this project helps shorten the working time, you can give me a cup of coffee :)
 
