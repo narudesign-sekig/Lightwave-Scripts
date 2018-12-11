@@ -38,9 +38,11 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         self.bool_others = None
         self.list_history = None
         self.button_remove = None
+        self.bool_sort_history = None
 
         self.history = []
         self.selection = []
+        self.sort_history = True
 
     # list_history name callback
     def nameCallback(self, control, user_data, row, column):
@@ -94,10 +96,12 @@ class SelectLayersByString(lwsdk.ICommandSequence):
     def read_history(self):
         self.history = recall("history", [])
         self.selection = [False] * len(self.history)
+        self.sort_history = recall("sort_history", True)
 
     # write history
     def write_history(self):
         store("history", self.history)
+        store("sort_history", self.sort_history)
 
     # check duplicate history
     def search_history(self, history):
@@ -136,7 +140,7 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         if index < 0 and len(history.string) > 0:
             self.history.insert(0, history)
 
-        if index > 0:
+        if index > 0 and self.sort_history:
             self.move_history_record_forward(index)
 
     # select layers
@@ -192,17 +196,19 @@ class SelectLayersByString(lwsdk.ICommandSequence):
             self.text_string.set_str(self.history[0].string)
             self.hchoice_contains.set_int(not self.history[0].select_contains)
             self.bool_others.set_int(self.history[0].select_others)
+            self.bool_sort_history.set_int(self.sort_history)
 
 
     def process(self, mod_command):
         self.read_history()
 
         ui = lwsdk.LWPanels()
-        panel = ui.create('Select layers by string ver.1.01 - Copyright (C) 2018 naru design')
+        panel = ui.create('Select layers by string ' + __version__ + ' - ' + __copyright__)
 
         self.text_string = panel.str_ctl("String", 50)
         self.hchoice_contains = panel.hchoice_ctl("Select FG Layer", ('Contains string', 'Not contains string'))
         self.bool_others = panel.bool_ctl("Select others as BG Layer")
+        self.bool_sort_history = panel.bool_ctl("Move the last condition up if they match")
         self.list_history = panel.multilist_ctl('History', 450, 10, self.nameCallback, self.countCallback, self.columnCallback)
         self.button_remove = panel.button_ctl("Remove")
         self.button_remove.ghost()
@@ -221,6 +227,8 @@ class SelectLayersByString(lwsdk.ICommandSequence):
         history.string = self.text_string.get_str()
         history.select_contains = not self.hchoice_contains.get_int()
         history.select_others = self.bool_others.get_int()
+
+        self.sort_history = self.bool_sort_history.get_int()
 
         self.add_history(history)
         self.write_history()
