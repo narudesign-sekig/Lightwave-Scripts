@@ -13,7 +13,7 @@ import lwsdk
 __author__      = "Makoto Sekiguchi"
 __date__        = "Dec 12 2018"
 __copyright__   = "Copyright (C) 2018 naru design"
-__version__     = "1.00"
+__version__     = "0.90"
 __maintainer__  = "Makoto Sekiguchi"
 __status__      = "Develop"
 __lwver__       = "11"
