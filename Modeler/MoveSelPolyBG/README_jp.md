@@ -12,7 +12,7 @@ Move the selected polygon to the background layer.
 
 ## Download
 
-[MoveSelPolyBG.zip](SK_MoveSelPolyBG.zip)
+[SK_MoveSelPolyBG.zip](SK_MoveSelPolyBG.zip)
 
 「名前をつけてリンク先を保存」でダウンロード。zipファイルに含まれるスクリプト(.pyファイル)を任意のフォルダへ移動してAdd Pluginしてください。
 
