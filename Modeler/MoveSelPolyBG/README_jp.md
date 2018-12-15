@@ -8,7 +8,7 @@ LightwaveのModeler用Pythonスクリプトです。
 
 ![SK_MoveSelPolyBG](SK_MoveSelPolyBG.gif)
 
-Move the selected polygon to the background layer.
+選択されているポリゴンを背景レイヤへ移動します。
 
 ## Download
 
