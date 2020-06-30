@@ -66,8 +66,3 @@ Deletes the selected history.
 2018.12.9 (ver.1.0)
 
 - Release
-
-## Donation
-If this project helps shorten the working time, you can give me a cup of coffee :)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASSXUYRELGTZ2)
