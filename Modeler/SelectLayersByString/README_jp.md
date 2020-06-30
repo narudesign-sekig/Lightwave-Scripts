@@ -67,8 +67,3 @@ Specify whether to select the layer containing the string as the foreground laye
 2018.12.9 (ver.1.0)
 
 - リリース
-
-## Donation
-If this project helps shorten the working time, you can give me a cup of coffee :)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASSXUYRELGTZ2)
