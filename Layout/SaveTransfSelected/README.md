@@ -1,4 +1,4 @@
-# SaveTranspSelected_SK
+# SaveTransfSelected_SK
 
  日本語 / [English](README.md)
 
