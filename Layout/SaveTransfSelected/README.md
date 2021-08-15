@@ -18,7 +18,7 @@ LightwaveのLayout用LScriptスクリプトです。
 
 SaveTransformedしたいアイテムを複数選択した状態でプラグインを実行します。
 
-ファイルはコンテントディレクトリ下の「SaveTranspSelected_SK_TMP」フォルダに保存されます。フォルダがない場合は作成されます。
+ファイルはコンテントディレクトリ下の「SaveTransfSelected_SK_TMP」フォルダに保存されます。フォルダがない場合は作成されます。
 
 ファイル名は「1234.lwo」のように数字＋.lwoとなります。1.lwo, 2.lwo, 3.lwo ... のようにアイテムの数だけファイルを作成します。
 
