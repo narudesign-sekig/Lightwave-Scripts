@@ -10,7 +10,7 @@ LightwaveのLayout用LScriptスクリプトです。
 
 ## Download
 
-[SaveTranspSelected_SK.zip](SaveTranspSelected_SK.zip)
+[SaveTransfSelected_SK.zip](SaveTransfSelected_SK.zip)
 
 「名前をつけてリンク先を保存」でダウンロード。zipファイルに含まれるスクリプト(.lsファイル)を任意のフォルダへ移動してAdd Pluginしてください。
 
