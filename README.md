@@ -11,3 +11,5 @@
 [SelectLayersByString](Modeler/SelectLayersByString/README.md) / 文字列でレイヤー選択
 
 ## for Layout
+
+[SaveTransfSelected](Layout/SaveTransfSelected/README.md) / 選択しているアイテムを一度にSaveTransformedする
