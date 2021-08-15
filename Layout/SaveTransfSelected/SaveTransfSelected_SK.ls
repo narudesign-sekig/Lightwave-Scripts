@@ -1,6 +1,6 @@
 @version 2.5
 @script generic
-@name SaveTranspSelected_SK
+@name SaveTransfSelected_SK
 generic
 {
     objlist=Scene().getSelect();
@@ -11,7 +11,7 @@ generic
         return;
     }
     
-    objdir=string(getdir(CONTENTDIR), "/SaveTranspSelected_SK_TMP/");
+    objdir=string(getdir(CONTENTDIR), "/SaveTransfSelected_SK_TMP/");
     chdir(getdir(CONTENTDIR));
     if(!fileexists(objdir))
         mkdir(objdir);
