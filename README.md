@@ -12,4 +12,4 @@
 
 ## for Layout
 
-[SaveTransfSelected](Layout/SaveTransfSelected/README.md) / 選択しているアイテムを一度にSaveTransformedする
+[SaveTransfSelected_SK](Layout/SaveTransfSelected/README.md) / 選択しているアイテムを一度にSaveTransformedする
